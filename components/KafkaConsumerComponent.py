@@ -1,12 +1,14 @@
 from kafka import KafkaConsumer
-import SendEmailCustomerio as sendEmail
+from SendEmailCustomerio import sendEmail 
 import time
+import json
 
 bootstrap_server = 'localhost:9092'
 topic = 'onboarding_email'
-consumer = KafkaConsumer(topics=topic, bootstrap_servers = bootstrap_server)
+consumer = KafkaConsumer(topic, bootstrap_server)
 
 for message in consumer:
-    //pergar os valores da mensagem aqui
-    sendEmail.execute(message, transactionalMessageId, subject, body)
+    parsedMessage = json.loads(message.value.decode('utf-8'))
+
+    sendEmail(parsedMessage["message_id"], parsedMessage["message_subject"], parsedMessage["message_body"])
     time.sleep(1)

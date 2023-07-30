@@ -3,6 +3,7 @@ import time
 from kafka import KafkaProducer
 
 bootstrap_server = 'localhost:9092'
+topic = 'onboarding_email'
 kafkaProducer = KafkaProducer(bootstrap_servers=bootstrap_server)
 
 message_limit = 5

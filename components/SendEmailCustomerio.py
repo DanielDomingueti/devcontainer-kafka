@@ -2,8 +2,9 @@ import customerio
 
 api_key = 'api_key_secret'
 site_id = 'site_id_secret'
+unique_customer_id = 'customer_id_secret'
 
-def execute(unique_customer_id, transactional_message_id, subject, body):
+def sendEmail(transactional_message_id, subject, body):
     custIo = customerio.CustomerIO(site_id, api_key)
 
     custIo.send_request(
