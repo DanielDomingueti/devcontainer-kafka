@@ -4,20 +4,16 @@
 	"image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
 	"build": {
 		"dockerfile": "Dockerfile"
-	}
-	,
-	"mounts": [
-		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-	],
+	},
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
 	"runArgs": ["--init"],
 	// Redirecionar a porta 9092 do Kafka para que você possa acessá-lo do host
 	"forwardPorts": [9092],
-	"dockerComposeFile": [
-		"/workspaces/devcontainer-kafka/docker-compose.yml"
-	],
+		
+	"postCreateCommand": "docker-compose -f /workspaces/devcontainer-kafka/docker-compose.yml up -d",
+	
 	// Importante para garantir que o contêiner seja executado como usuário não-root
 	"remoteUser": "vscode"
 }
