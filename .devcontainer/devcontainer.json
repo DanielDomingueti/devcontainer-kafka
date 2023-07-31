@@ -11,9 +11,9 @@
 	"runArgs": ["--init"],
 	// Redirecionar a porta 9092 do Kafka para que você possa acessá-lo do host
 	"forwardPorts": [9092],
-		
-	"postCreateCommand": "docker-compose -f /workspaces/devcontainer-kafka/docker-compose.yml up -d",
-	
+	"dockerComposeFile": [
+		"/workspaces/devcontainer-kafka/docker-compose.yml"
+	],
 	// Importante para garantir que o contêiner seja executado como usuário não-root
 	"remoteUser": "vscode"
 }
