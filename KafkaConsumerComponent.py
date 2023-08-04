@@ -1,6 +1,6 @@
 from kafka import KafkaConsumer
 
-bootstrap_servers = '192.168.65.0:9092'
+bootstrap_servers = 'kafka:9092'
 topic_name = 'onboarding'
 
 consumer = KafkaConsumer(
