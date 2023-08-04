@@ -1,7 +1,7 @@
 from kafka import KafkaProducer
 import time
 
-bootstrap_servers = 'localhost:9091' 
+bootstrap_servers = 'localhost:9093' #kafka2 instance
 topic_name = 'onboarding'
 
 producer = KafkaProducer(
